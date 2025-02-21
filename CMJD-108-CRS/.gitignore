@@ -1,0 +1,16 @@
+# Ignore Java class files
+*.class
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore dependency folders
+lib/
+
+# Ignore IDE-specific files
+.idea/
+*.iml
+
+# Ignore build and output folders
+bin/
+target/
