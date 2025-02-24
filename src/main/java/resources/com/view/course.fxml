@@ -35,17 +35,17 @@
       <TextField fx:id="creditHoursField" layoutX="99.0" layoutY="361.0" prefHeight="25.0" prefWidth="91.0" />
       <Label layoutX="200.0" layoutY="365.0" prefHeight="17.0" prefWidth="82.0" text="Prerequisites: " />
       <TextField fx:id="prerequisitesField" layoutX="274.0" layoutY="361.0" prefHeight="25.0" prefWidth="91.0" />
-      <Button layoutX="351.0" layoutY="420.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: green;" text="Add" textFill="WHITE">
+      <Button fx:id="addButton" layoutX="351.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: green;" text="Add" textFill="WHITE">
          <font>
             <Font name="Dutch 801 Bold BT" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="451.0" layoutY="420.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: orange;" text="Update" textFill="WHITE">
+      <Button fx:id="addButton" layoutX="451.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: orange;" text="Update" textFill="WHITE">
          <font>
             <Font name="Dutch 801 Bold BT" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="550.0" layoutY="420.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+      <Button fx:id="deleteButton" layoutX="550.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Dutch 801 Bold BT" size="18.0" />
          </font>
