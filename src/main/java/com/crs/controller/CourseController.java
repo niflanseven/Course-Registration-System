@@ -2,7 +2,7 @@ package main.java.com.crs.controller;
 
 import main.java.com.crs.dto.CourseDTO;
 import main.java.com.crs.service.CourseService;
-import main.java.com.crs.service.CourseServiceImpl;
+import main.java.com.crs.service.ServiceFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -40,7 +40,7 @@ public class CourseController {
     @FXML
     private TextField prerequisitesField;
 
-    private CourseService courseService = new CourseServiceImpl();
+    private CourseService courseService = ServiceFactory.getInstance().getService(ServiceFactory.ServiceType.COURSE);
     private ObservableList<CourseDTO> courseList = FXCollections.observableArrayList();
 
     @FXML
@@ -55,10 +55,20 @@ public class CourseController {
 
         // Load data into TableView
         loadCourses();
+
+        // Add a listener to the TableView to populate input fields when a row is selected
+        courseTable.getSelectionModel().selectedItemProperty().addListener(
+            (observable, oldValue, newValue) -> {
+                if (newValue != null) {
+                    // Populate input fields with the selected course data
+                    populateInputFields(newValue);
+                }
+            }
+        );
     }
 
     private void loadCourses() {
-        List<CourseDTO> courses = courseService.findAllCourses();
+        List<CourseDTO> courses = courseService.findAll();
         courseList.setAll(courses);
         courseTable.setItems(courseList);
     }
@@ -72,7 +82,7 @@ public class CourseController {
         course.setPrerequisites(prerequisitesField.getText());
         course.setMaxCapacity(Integer.parseInt(maxCapacityField.getText()));
 
-        courseService.saveCourse(course);
+        courseService.save(course);
         loadCourses();
         clearFields();
     }
@@ -87,7 +97,7 @@ public class CourseController {
             selectedCourse.setPrerequisites(prerequisitesField.getText());
             selectedCourse.setMaxCapacity(Integer.parseInt(maxCapacityField.getText()));
 
-            courseService.updateCourse(selectedCourse);
+            courseService.update(selectedCourse);
             loadCourses();
             clearFields();
         }
@@ -97,10 +107,18 @@ public class CourseController {
     private void btnDeleteOnAction() {
         CourseDTO selectedCourse = courseTable.getSelectionModel().getSelectedItem();
         if (selectedCourse != null) {
-            courseService.deleteCourse(selectedCourse.getCourseId());
+            courseService.delete(selectedCourse.getCourseId());
             loadCourses();
             clearFields();
         }
+    }
+
+    private void populateInputFields(CourseDTO course) {
+        titleField.setText(course.getTitle());
+        creditHoursField.setText(String.valueOf(course.getCreditHours()));
+        departmentField.setText(course.getDepartment());
+        prerequisitesField.setText(course.getPrerequisites());
+        maxCapacityField.setText(String.valueOf(course.getMaxCapacity()));
     }
 
     private void clearFields() {

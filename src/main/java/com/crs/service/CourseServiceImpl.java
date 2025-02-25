@@ -11,27 +11,27 @@ public class CourseServiceImpl implements CourseService {
     private CourseDAO courseDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOType.COURSE);
 
     @Override
-    public boolean saveCourse(CourseDTO course) {
+    public boolean save(CourseDTO course) {
         return courseDAO.save(course);
     }
 
     @Override
-    public boolean updateCourse(CourseDTO course) {
+    public boolean update(CourseDTO course) {
         return courseDAO.update(course);
     }
 
     @Override
-    public boolean deleteCourse(int courseId) {
+    public boolean delete(int courseId) {
         return courseDAO.delete(courseId);
     }
 
     @Override
-    public CourseDTO findCourseById(int courseId) {
+    public CourseDTO findById(int courseId) {
         return courseDAO.findById(courseId);
     }
 
     @Override
-    public List<CourseDTO> findAllCourses() {
+    public List<CourseDTO> findAll() {
         return courseDAO.findAll();
     }
 }

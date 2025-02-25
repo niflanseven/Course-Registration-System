@@ -12,6 +12,7 @@ public class DAOFactory {
         return daoFactory;
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T getDAO(DAOType daoType) {
         switch (daoType) {
             case COURSE:
