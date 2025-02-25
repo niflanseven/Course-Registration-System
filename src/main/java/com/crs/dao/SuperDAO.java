@@ -2,10 +2,12 @@ package main.java.com.crs.dao;
 
 import java.util.List;
 
+import main.java.com.crs.dto.CourseDTO;
+
 public interface SuperDAO<T> {
-    boolean save(T entity);
-    boolean update(T entity);
-    boolean delete(int id);
-    T findById(int id);
-    List<T> findAll();
+    boolean save(CourseDTO course);
+    boolean update(CourseDTO course);
+    boolean delete(int courseId);
+    CourseDTO findById(int courseId);
+    List<CourseDTO> findAll();
 }
