@@ -13,14 +13,15 @@ import java.util.List;
 public class CourseDAOImpl implements CourseDAO {
     @Override
     public boolean save(CourseDTO course) {
-        String query = "INSERT INTO Courses (title, credit_hours, department, prerequisites, max_capacity) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Courses (course_id, title, credit_hours, department, prerequisites, max_capacity) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setString(1, course.getTitle());
-            stmt.setInt(2, course.getCreditHours());
-            stmt.setString(3, course.getDepartment());
-            stmt.setString(4, course.getPrerequisites());
-            stmt.setInt(5, course.getMaxCapacity());
+            stmt.setString(1, course.getCourseId()); // Set courseId as String
+            stmt.setString(2, course.getTitle());
+            stmt.setInt(3, course.getCreditHours());
+            stmt.setString(4, course.getDepartment());
+            stmt.setString(5, course.getPrerequisites());
+            stmt.setInt(6, course.getMaxCapacity());
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,7 +39,7 @@ public class CourseDAOImpl implements CourseDAO {
             stmt.setString(3, course.getDepartment());
             stmt.setString(4, course.getPrerequisites());
             stmt.setInt(5, course.getMaxCapacity());
-            stmt.setInt(6, course.getCourseId());
+            stmt.setString(6, course.getCourseId()); // Set courseId as String
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,11 +48,11 @@ public class CourseDAOImpl implements CourseDAO {
     }
 
     @Override
-    public boolean delete(int courseId) {
+    public boolean delete(String courseId) { // Change parameter type to String
         String query = "DELETE FROM Courses WHERE course_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, courseId);
+            stmt.setString(1, courseId); // Set courseId as String
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -60,15 +61,15 @@ public class CourseDAOImpl implements CourseDAO {
     }
 
     @Override
-    public CourseDTO findById(int courseId) {
+    public CourseDTO findById(String courseId) { // Change parameter type to String
         String query = "SELECT * FROM Courses WHERE course_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, courseId);
+            stmt.setString(1, courseId); // Set courseId as String
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 return new CourseDTO(
-                        rs.getInt("course_id"),
+                        rs.getString("course_id"), // Get courseId as String
                         rs.getString("title"),
                         rs.getInt("credit_hours"),
                         rs.getString("department"),
@@ -91,7 +92,7 @@ public class CourseDAOImpl implements CourseDAO {
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 courses.add(new CourseDTO(
-                        rs.getInt("course_id"),
+                        rs.getString("course_id"), // Get courseId as String
                         rs.getString("title"),
                         rs.getInt("credit_hours"),
                         rs.getString("department"),

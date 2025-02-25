@@ -10,9 +10,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.crs.controller.CourseController">
    <children>
-      <Label layoutX="174.0" layoutY="14.0" text="Course Registration System (CRS)">
+      <Label layoutX="213.0" layoutY="14.0" text="Course Registration System (CRS)">
          <font>
-            <Font name="Dubai Regular" size="18.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font>
       </Label>
       <TableView fx:id="courseTable" layoutX="14.0" layoutY="58.0" prefHeight="237.0" prefWidth="651.0">
@@ -25,16 +25,31 @@
             <TableColumn fx:id="maxCapacityColumn" prefWidth="91.99993896484375" text="Max Capacity" />
         </columns>
       </TableView>
-      <Label layoutX="20.0" layoutY="320.0" prefHeight="17.0" prefWidth="30.0" text="Title: " />
-      <Label layoutX="200.0" layoutY="320.0" prefHeight="17.0" prefWidth="74.0" text="Department: " />
-      <TextField fx:id="titleField" layoutX="50.0" layoutY="316.0" prefHeight="25.0" prefWidth="141.0" />
-      <TextField fx:id="departmentField" layoutX="274.0" layoutY="316.0" prefHeight="25.0" prefWidth="129.0" />
-      <Label layoutX="425.0" layoutY="320.0" prefHeight="17.0" prefWidth="82.0" text="Max Capacity: " />
-      <TextField fx:id="maxCapacityField" layoutX="507.0" layoutY="316.0" prefHeight="25.0" prefWidth="74.0" />
-      <Label layoutX="20.0" layoutY="365.0" prefHeight="17.0" prefWidth="82.0" text="Credit Hours: " />
-      <TextField fx:id="creditHoursField" layoutX="99.0" layoutY="361.0" prefHeight="25.0" prefWidth="91.0" />
-      <Label layoutX="200.0" layoutY="365.0" prefHeight="17.0" prefWidth="82.0" text="Prerequisites: " />
-      <TextField fx:id="prerequisitesField" layoutX="274.0" layoutY="361.0" prefHeight="25.0" prefWidth="91.0" />
+      <Label layoutX="194.0" layoutY="317.0" prefHeight="17.0" prefWidth="36.0" text="Title: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="408.0" layoutY="317.0" prefHeight="17.0" prefWidth="82.0" text="Department: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="titleField" layoutX="235.0" layoutY="313.0" prefHeight="25.0" prefWidth="163.0" promptText="Course Title" />
+      <TextField fx:id="departmentField" layoutX="490.0" layoutY="313.0" prefHeight="25.0" prefWidth="171.0" promptText="Department of the Course" />
+      <Label layoutX="20.0" layoutY="364.0" prefHeight="17.0" prefWidth="82.0" text="Max Capacity: ">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font></Label>
+      <TextField fx:id="maxCapacityField" layoutX="102.0" layoutY="360.0" prefHeight="25.0" prefWidth="74.0" promptText="Max" />
+      <Label layoutX="194.0" layoutY="364.0" prefHeight="17.0" prefWidth="82.0" text="Credit Hours: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="creditHoursField" layoutX="280.0" layoutY="360.0" prefHeight="25.0" prefWidth="117.0" promptText="Credit Hours" />
+      <Label layoutX="407.0" layoutY="364.0" prefHeight="17.0" prefWidth="82.0" text="Prerequisites: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="prerequisitesField" layoutX="490.0" layoutY="360.0" prefHeight="25.0" prefWidth="171.0" promptText="Prerequisites" />
       <Button fx:id="addButton" layoutX="351.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: green;" text="Add" textFill="WHITE">
          <font>
             <Font name="Dutch 801 Bold BT" size="18.0" />
@@ -50,5 +65,11 @@
             <Font name="Dutch 801 Bold BT" size="18.0" />
          </font>
       </Button>
+      <Label layoutX="20.0" layoutY="317.0" prefHeight="17.0" prefWidth="65.0" text="Course ID: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="courseIdField" layoutX="94.0" layoutY="313.0" prefHeight="25.0" prefWidth="82.0" promptText="Course ID" />
    </children>
 </AnchorPane>

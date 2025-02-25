@@ -2,7 +2,7 @@ CREATE DATABASE CRS;
 USE CRS;
 
 CREATE TABLE Courses (
-    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_id VARCHAR(10) PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     credit_hours INT NOT NULL,
     department VARCHAR(50),
@@ -11,7 +11,7 @@ CREATE TABLE Courses (
 );
 
 CREATE TABLE Students (
-    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id VARCHAR(10) PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     date_of_birth DATE,
     program VARCHAR(50),
@@ -20,9 +20,9 @@ CREATE TABLE Students (
 );
 
 CREATE TABLE Enrollments (
-    enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
-    student_id INT,
-    course_id INT,
+    enrollment_id VARCHAR(10) PRIMARY KEY,
+    student_id VARCHAR(10),
+    course_id VARCHAR(10),
     grade VARCHAR(2),
     FOREIGN KEY (student_id) REFERENCES Students(student_id),
     FOREIGN KEY (course_id) REFERENCES Courses(course_id)

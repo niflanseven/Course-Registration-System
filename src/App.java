@@ -16,6 +16,7 @@ public class App extends Application {
         URL resource = getClass().getResource("./main/java/resources/com/view/course.fxml");
         Parent root =FXMLLoader.load(resource);
         primaryStage.setScene(new Scene(root));
+        primaryStage.setTitle("Course Form");
         primaryStage.show();
     }
    

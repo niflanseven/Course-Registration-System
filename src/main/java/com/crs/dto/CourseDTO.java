@@ -1,7 +1,7 @@
 package main.java.com.crs.dto;
 
 public class CourseDTO {
-    private int courseId;
+    private String courseId; // Changed from int to String
     private String title;
     private int creditHours;
     private String department;
@@ -12,7 +12,7 @@ public class CourseDTO {
     public CourseDTO() {}
 
     // Parameterized Constructor
-    public CourseDTO(int courseId, String title, int creditHours, String department, String prerequisites, int maxCapacity) {
+    public CourseDTO(String courseId, String title, int creditHours, String department, String prerequisites, int maxCapacity) {
         this.courseId = courseId;
         this.title = title;
         this.creditHours = creditHours;
@@ -22,11 +22,11 @@ public class CourseDTO {
     }
 
     // Getters and Setters
-    public int getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 
@@ -73,7 +73,7 @@ public class CourseDTO {
     @Override
     public String toString() {
         return "CourseDTO{" +
-                "courseId=" + courseId +
+                "courseId='" + courseId + '\'' +
                 ", title='" + title + '\'' +
                 ", creditHours=" + creditHours +
                 ", department='" + department + '\'' +

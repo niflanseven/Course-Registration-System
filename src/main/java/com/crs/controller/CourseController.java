@@ -17,7 +17,7 @@ public class CourseController {
     @FXML
     private TableView<CourseDTO> courseTable;
     @FXML
-    private TableColumn<CourseDTO, Integer> courseIdColumn;
+    private TableColumn<CourseDTO, String> courseIdColumn;
     @FXML
     private TableColumn<CourseDTO, String> courseTitleColumn;
     @FXML
@@ -29,6 +29,8 @@ public class CourseController {
     @FXML
     private TableColumn<CourseDTO, Integer> maxCapacityColumn;
 
+    @FXML
+    private TextField courseIdField;
     @FXML
     private TextField titleField;
     @FXML
@@ -68,52 +70,74 @@ public class CourseController {
     }
 
     private void loadCourses() {
-        List<CourseDTO> courses = courseService.findAll();
+        List<CourseDTO> courses = courseService.findAllCourses();
         courseList.setAll(courses);
         courseTable.setItems(courseList);
     }
 
     @FXML
     private void btnAddOnAction() {
+        // Create a new CourseDTO object
         CourseDTO course = new CourseDTO();
+        course.setCourseId(courseIdField.getText()); // Set the manually entered Course ID
         course.setTitle(titleField.getText());
         course.setCreditHours(Integer.parseInt(creditHoursField.getText()));
         course.setDepartment(departmentField.getText());
         course.setPrerequisites(prerequisitesField.getText());
         course.setMaxCapacity(Integer.parseInt(maxCapacityField.getText()));
 
-        courseService.save(course);
+        // Add the course to the database
+        courseService.saveCourse(course);
+
+        // Refresh the TableView
         loadCourses();
+
+        // Clear input fields
         clearFields();
     }
 
     @FXML
     private void btnUpdateOnAction() {
+        // Get the selected course from the TableView
         CourseDTO selectedCourse = courseTable.getSelectionModel().getSelectedItem();
         if (selectedCourse != null) {
+            // Update the course details from the input fields
+            selectedCourse.setCourseId(courseIdField.getText()); // Update the Course ID
             selectedCourse.setTitle(titleField.getText());
             selectedCourse.setCreditHours(Integer.parseInt(creditHoursField.getText()));
             selectedCourse.setDepartment(departmentField.getText());
             selectedCourse.setPrerequisites(prerequisitesField.getText());
             selectedCourse.setMaxCapacity(Integer.parseInt(maxCapacityField.getText()));
 
-            courseService.update(selectedCourse);
+            // Update the course in the database
+            courseService.updateCourse(selectedCourse);
+
+            // Refresh the TableView
             loadCourses();
+
+            // Clear input fields
             clearFields();
         }
     }
 
     @FXML
     private void btnDeleteOnAction() {
+        // Get the selected course from the TableView
         CourseDTO selectedCourse = courseTable.getSelectionModel().getSelectedItem();
         if (selectedCourse != null) {
-            courseService.delete(selectedCourse.getCourseId());
+            // Delete the course from the database
+            courseService.deleteCourse(selectedCourse.getCourseId()); // courseId is now a String
+    
+            // Refresh the TableView
             loadCourses();
+    
+            // Clear input fields
             clearFields();
         }
     }
 
     private void populateInputFields(CourseDTO course) {
+        courseIdField.setText(course.getCourseId());
         titleField.setText(course.getTitle());
         creditHoursField.setText(String.valueOf(course.getCreditHours()));
         departmentField.setText(course.getDepartment());
@@ -122,6 +146,7 @@ public class CourseController {
     }
 
     private void clearFields() {
+        courseIdField.clear();
         titleField.clear();
         creditHoursField.clear();
         departmentField.clear();
