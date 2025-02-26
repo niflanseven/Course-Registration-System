@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.crs.controller.EnrollmentController">
+   <children>
+      <Label layoutX="217.0" layoutY="14.0" text="Enrollment Management System">
+         <font>
+            <Font name="Dubai Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="enrollmentTable" layoutX="68.0" layoutY="58.0" prefHeight="242.0" prefWidth="524.0">
+        <columns>
+          <TableColumn fx:id="enrollmentIdColumn" prefWidth="105.33330535888672" text="Enrollment ID" />
+          <TableColumn fx:id="studentIdColumn" prefWidth="154.6666717529297" text="Student ID" />
+          <TableColumn fx:id="courseIdColumn" prefWidth="153.33331298828125" text="Course ID" />
+          <TableColumn fx:id="gradeColumn" prefWidth="108.66665649414062" text="Grade" />
+        </columns>
+      </TableView>
+      <Label layoutX="85.0" layoutY="324.0" prefHeight="17.0" prefWidth="91.0" text="Enrollment ID: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="enrollmentIdField" layoutX="188.0" layoutY="320.0" prefHeight="25.0" prefWidth="141.0" promptText="Enrollment ID" />
+      <Label layoutX="85.0" layoutY="354.0" prefHeight="17.0" prefWidth="71.0" text="Student ID: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="studentIdField" layoutX="188.0" layoutY="350.0" prefHeight="25.0" prefWidth="141.0" promptText="Student ID" />
+      <Label layoutX="354.0" layoutY="326.0" prefHeight="17.0" prefWidth="65.0" text="Course ID: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="courseIdField" layoutX="434.0" layoutY="320.0" prefHeight="25.0" prefWidth="141.0" promptText="Course ID" />
+      <Label layoutX="354.0" layoutY="356.0" prefHeight="17.0" prefWidth="45.0" text="Grade: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="gradeField" layoutX="434.0" layoutY="352.0" prefHeight="25.0" prefWidth="141.0" promptText="Grade" />
+      <Button fx:id="addButton" layoutX="351.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: green;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="Dutch 801 Bold BT" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="updateButton" layoutX="451.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: orange;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Dutch 801 Bold BT" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteButton" layoutX="550.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Dutch 801 Bold BT" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
