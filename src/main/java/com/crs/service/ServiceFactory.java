@@ -17,14 +17,16 @@ public class ServiceFactory {
         switch (serviceType) {
             case COURSE:
                 return (T) new CourseServiceImpl();
-            // Add other service types here (e.g., STUDENT, ENROLLMENT)
+            case STUDENT:
+                return (T) new StudentServiceImpl();
+            case ENROLLMENT:
+                return (T) new EnrollmentServiceImpl();
             default:
                 return null;
         }
     }
 
     public enum ServiceType {
-        COURSE
-        // Add other service types here (e.g., STUDENT, ENROLLMENT)
+        COURSE, STUDENT, ENROLLMENT
     }
 }

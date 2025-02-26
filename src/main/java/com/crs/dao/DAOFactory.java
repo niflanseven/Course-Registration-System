@@ -17,14 +17,16 @@ public class DAOFactory {
         switch (daoType) {
             case COURSE:
                 return (T) new CourseDAOImpl();
-            // Add other DAO types here (e.g., STUDENT, ENROLLMENT)
+            case STUDENT:
+                return (T) new StudentDAOImpl();
+            case ENROLLMENT:
+                return (T) new EnrollmentDAOImpl();
             default:
                 return null;
         }
     }
 
     public enum DAOType {
-        COURSE
-        // Add other DAO types here (e.g., STUDENT, ENROLLMENT)
+        COURSE, STUDENT, ENROLLMENT
     }
 }
