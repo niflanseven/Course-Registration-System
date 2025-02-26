@@ -1,7 +1,7 @@
 package main.java.com.crs.entity;
 
 public class Course {
-    private int courseId;
+    private String courseId; // Changed to String
     private String title;
     private int creditHours;
     private String department;
@@ -12,7 +12,7 @@ public class Course {
     public Course() {}
 
     // Parameterized Constructor
-    public Course(int courseId, String title, int creditHours, String department, String prerequisites, int maxCapacity) {
+    public Course(String courseId, String title, int creditHours, String department, String prerequisites, int maxCapacity) {
         this.courseId = courseId;
         this.title = title;
         this.creditHours = creditHours;
@@ -22,11 +22,11 @@ public class Course {
     }
 
     // Getters and Setters
-    public int getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public void setCourseId(String courseId) {
         this.courseId = courseId;
     }
 
@@ -73,7 +73,7 @@ public class Course {
     @Override
     public String toString() {
         return "Course{" +
-                "courseId=" + courseId +
+                "courseId='" + courseId + '\'' +
                 ", title='" + title + '\'' +
                 ", creditHours=" + creditHours +
                 ", department='" + department + '\'' +

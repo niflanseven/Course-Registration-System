@@ -2,36 +2,34 @@ package main.java.com.crs.service;
 
 import main.java.com.crs.dao.CourseDAO;
 import main.java.com.crs.dao.DAOFactory;
-import main.java.com.crs.dto.CourseDTO;
-
+import main.java.com.crs.entity.Course; // Use entity class
 import java.util.List;
-
 
 public class CourseServiceImpl implements CourseService {
     private CourseDAO courseDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOType.COURSE);
 
     @Override
-    public boolean saveCourse(CourseDTO course) {
+    public boolean save(Course course) { // Use entity class
         return courseDAO.save(course);
     }
 
     @Override
-    public boolean updateCourse(CourseDTO course) {
+    public boolean update(Course course) { // Use entity class
         return courseDAO.update(course);
     }
 
     @Override
-    public boolean deleteCourse(String courseId) { // Change parameter type to String
+    public boolean delete(String courseId) {
         return courseDAO.delete(courseId);
     }
 
     @Override
-    public CourseDTO findCourseById(String courseId) { // Change parameter type to String
+    public Course findById(String courseId) { // Use entity class
         return courseDAO.findById(courseId);
     }
 
     @Override
-    public List<CourseDTO> findAllCourses() {
+    public List<Course> findAll() { // Use entity class
         return courseDAO.findAll();
     }
 }
