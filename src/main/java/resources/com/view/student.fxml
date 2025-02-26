@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.crs.controller.StudentController">
+   <children>
+      <Label layoutX="228.0" layoutY="14.0" text="Student Management System">
+         <font>
+            <Font name="Dubai Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="studentTable" layoutX="27.0" layoutY="58.0" prefHeight="237.0" prefWidth="656.0">
+        <columns>
+          <TableColumn fx:id="studentIdColumn" prefWidth="64.66665935516357" text="Student ID" />
+          <TableColumn fx:id="nameColumn" prefWidth="141.3333969116211" text="Name" />
+          <TableColumn fx:id="dateOfBirthColumn" prefWidth="84.00001525878906" text="Date of Birth" />
+          <TableColumn fx:id="programColumn" prefWidth="180.66668701171875" text="Program" />
+          <TableColumn fx:id="yearColumn" prefWidth="82.00003051757812" text="Year" />
+          <TableColumn fx:id="contactInfoColumn" prefWidth="98.66668701171875" text="Contact Info" />
+        </columns>
+      </TableView>
+      <Label layoutX="69.0" layoutY="319.0" prefHeight="17.0" prefWidth="70.0" text="Student ID: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="studentIdField" layoutX="149.0" layoutY="315.0" prefHeight="25.0" prefWidth="177.0" promptText="Student ID" />
+      <Label layoutX="69.0" layoutY="349.0" prefHeight="17.0" prefWidth="40.0" text="Name: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="nameField" layoutX="149.0" layoutY="345.0" prefHeight="25.0" prefWidth="177.0" promptText="Full Name" />
+      <Label layoutX="69.0" layoutY="379.0" prefHeight="17.0" prefWidth="80.0" text="Date of Birth: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="dateOfBirthField" layoutX="149.0" layoutY="375.0" prefHeight="25.0" prefWidth="177.0" promptText="Date Of Birth" />
+      <Label layoutX="357.0" layoutY="319.0" prefHeight="17.0" prefWidth="60.0" text="Program: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="programField" layoutX="437.0" layoutY="315.0" prefHeight="25.0" prefWidth="177.0" promptText="Program" />
+      <Label layoutX="357.0" layoutY="349.0" prefHeight="17.0" prefWidth="40.0" text="Year: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="yearField" layoutX="437.0" layoutY="345.0" prefHeight="25.0" prefWidth="177.0" promptText="Enrollment Year" />
+      <Label layoutX="357.0" layoutY="379.0" prefHeight="17.0" prefWidth="80.0" text="Contact Info: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="contactInfoField" layoutX="437.0" layoutY="375.0" prefHeight="25.0" prefWidth="177.0" promptText="Contact Info" />
+      <Button fx:id="addButton" layoutX="342.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: green;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="Dutch 801 Bold BT" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="updateButton" layoutX="452.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: orange;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Dutch 801 Bold BT" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteButton" layoutX="562.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Dutch 801 Bold BT" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
