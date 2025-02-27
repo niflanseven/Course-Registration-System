@@ -10,9 +10,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.crs.controller.EnrollmentController">
    <children>
-      <Label layoutX="217.0" layoutY="14.0" text="Enrollment Management System">
+      <Label layoutX="208.0" layoutY="21.0" text="Enrollment Management System">
          <font>
-            <Font name="Dubai Bold" size="18.0" />
+            <Font name="Bodoni MT Bold" size="18.0" />
          </font>
       </Label>
       <TableView fx:id="enrollmentTable" layoutX="68.0" layoutY="58.0" prefHeight="242.0" prefWidth="524.0">
